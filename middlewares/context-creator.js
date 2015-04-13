@@ -1,9 +1,17 @@
 import _ from 'lodash';
 
-var contextFields = ['code_url']
+// let parseUser = (user) => {
+//   var userCtx = {};
+//   if (user.ectx) {
+
+//   }
+// }
 
 export default (req, res, next) => {
-  var ctx = _.extend({}, req.query, _.pick(req.user, contextFields));
+  // if (req.user && process.env.USE_JWT) {
+  //   parseUser(req.user);
+  // }
+  var ctx = _.extend({}, req.query);
   req.ctx = ctx;
   next();
 }
