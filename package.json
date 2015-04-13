@@ -1,0 +1,39 @@
+{
+  "name": "webtask-runner",
+  "version": "0.1.0",
+  "description": "A runner for WebTasks",
+  "main": "start.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/auth0/webtask-runner.git"
+  },
+  "keywords": [
+    "webtask",
+    "runner",
+    "eval",
+    "webtask.io"
+  ],
+  "author": "Martin Gontovnikas <martin@gon.to> (http://gon.to/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/auth0/webtask-runner/issues"
+  },
+  "homepage": "https://github.com/auth0/webtask-runner",
+  "dependencies": {
+    "babel": "^5.1.4",
+    "babel-core": "^5.1.4",
+    "body-parser": "^1.12.2",
+    "compression": "^1.4.3",
+    "cors": "^2.5.3",
+    "dotenv": "^1.1.0",
+    "errorhandler": "^1.3.5",
+    "express": "^4.12.3",
+    "express-jwt": "^3.0.0",
+    "jsonwebtoken": "^5.0.0",
+    "lodash": "^3.6.0",
+    "morgan": "^1.5.2"
+  }
+}
