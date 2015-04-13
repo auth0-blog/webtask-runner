@@ -1,28 +1,14 @@
 import express from 'express';
-import _ from 'lodash';
-import jwt from 'express-jwt';
-import identityMiddleware from './express-identity-middleware'
-import StatusError from './status-error'
+import StatusError from './errors/status-error'
+
+// Middlewares
+import jwtCheck from './middlewares/jwt-check'
+import codeGetter from './middlewares/code-getter';
+import contextCreator from './middlewares/context-creator'
 
 let app = express.Router();
 
-console.log(process.env.JWT_SECRET);
-let jwtCheck = jwt({
-  secret: process.env.JWT_SECRET
-});
-
-let checkIdentity = process.env.USE_JWT ? jwtCheck : identityMiddleware;
-
-let getCode = (req, res, next) => {
-  req.code = req.body;
-  next();
-};
-
-let createContext = (req) => {
-  return {};
-};
-
-app.post('/run', checkIdentity, getCode, (req, res) => {
+app.post('/run', jwtCheck, codeGetter, contextCreator, (req, res) => {
   let clientCode = null;
   try {
     let factory = new Function(req.code);
@@ -42,7 +28,7 @@ app.post('/run', checkIdentity, getCode, (req, res) => {
 
   let args = [];
   if (clientCode.length === 2) {
-    args.push(createContext(req));
+    args.push(req.ctx);
   }
 
   args.push((err, data) => {
