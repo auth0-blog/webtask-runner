@@ -8,7 +8,7 @@ import contextCreator from './middlewares/context-creator'
 
 let app = express.Router();
 
-app.post('/run', jwtCheck, codeGetter, contextCreator, (req, res) => {
+app.post('/run', jwtCheck, contextCreator, codeGetter, (req, res) => {
   let clientCode = null;
   try {
     let factory = new Function(req.code);
