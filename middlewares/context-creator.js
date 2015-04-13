@@ -2,7 +2,7 @@ import _ from 'lodash';
 import encryption from '../lib/encryption'
 
 let parseUser = (user) => {
-  let userCtx = _.extend({}, user.pctx, user.code_url);
+  let userCtx = _.extend({}, _.extend({code_url: user.code_url}, user.pctx));
   if (user.ectx) {
     _.extend(userCtx, encryption.decrypt(user.ectx));
   }
