@@ -36,7 +36,8 @@ if (process.env.NODE_ENV === 'development') {
   app.use(errorhandler())
 }
 
-app.use(taskRunner)
+app.use(taskRunner);
+app.use(tokenCreator);
 
 
 let port = process.env.PORT || 3001;

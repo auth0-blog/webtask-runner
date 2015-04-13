@@ -23,7 +23,7 @@ app.post('/run', jwtCheck, contextCreator, codeGetter, (req, res) => {
     }
   } catch (e) {
       let msg = 'Unable to compile submitted JavaScript. ' + e.toString();
-      throw new StatusError(msg, status);
+      throw new StatusError(msg, 500);
   }
 
   let args = [];
