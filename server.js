@@ -19,7 +19,7 @@ app.use(cors());
 
 app.use((err, req, res, next) => {
   if (err.name === 'StatusError') {
-    res.send(err.status, err.message);
+    res..status(err.status).send(err.message);
   } else {
     next(err);
   }
