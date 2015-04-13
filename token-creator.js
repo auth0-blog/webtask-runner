@@ -10,8 +10,8 @@ let app = express.Router();
 app.post('/create-token', jwtCheck, (req, res) => {
   let tokenBody = _.pick(req.user, 'sub', 'exp', 'aud', 'iat');
 
-  if (req.user.code_url) {
-    throw new StatusError("You can't create a token with a token with a Code URL", 401);
+  if (req.user.code_url || req.user.ectx || req.user.pctx) {
+    throw new StatusError("You can't create a new token which has fields", 401);
   }
 
   if (req.body.ectx) {
