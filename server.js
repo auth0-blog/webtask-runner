@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 });
 
 if (process.env.NODE_ENV === 'development') {
-  app.use(express.logger('dev'));
+  app.use(logger('dev'));
   app.use(errorhandler())
 }
 
