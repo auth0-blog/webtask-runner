@@ -6,13 +6,16 @@ import jwtCheck from './middlewares/jwt-check'
 import codeGetter from './middlewares/code-getter';
 import contextCreator from './middlewares/context-creator'
 
+// Imports for WebTasks
+import request from 'request';
+
 let app = express.Router();
 
 app.post('/run', jwtCheck, contextCreator, codeGetter, (req, res) => {
   let clientCode = null;
   try {
-    let factory = new Function(req.code);
-    clientCode = factory();
+    let factory = new Function('require', req.code);
+    clientCode = factory(require);
     if (typeof clientCode !== 'function') {
         let msg = 'The code does not return a JavaScript function.';
         throw new StatusError(msg, 400);
@@ -48,7 +51,7 @@ app.post('/run', jwtCheck, contextCreator, codeGetter, (req, res) => {
   try {
     clientCode.apply(this, args);
   } catch(e) {
-    throw new StatusError('Script generated an unhandled synchronous exception.', 500);
+    throw new StatusError('Script generated an unhandled synchronous exception. ' + e.toString(), 500);
   }
 });
 
