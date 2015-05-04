@@ -1,6 +1,6 @@
 # Webtask Runner
 
-This is a web server made in Node which runs WebTasks.
+[Webtasks](https://webtask.io) is a novel approach to implementing backend functionality in your front end application, developed and operated by Auth0. This project implements a simple webtask runtime: a server that can execute webtasks. It is meant as a demonstration of key webtask concepts in a single-tenant development environment.
 
 ## Features
 * It **runs WebTasks*. Learn more about them at [this blog post](http://tomasz.janczuk.org/2015/04/rethinking-backend-with-webtasks.html)
