@@ -8,6 +8,7 @@ import contextCreator from './middlewares/context-creator'
 
 // Imports for WebTasks
 import request from 'request';
+import requireVersion from './require-version';
 
 let app = express.Router();
 

@@ -37,6 +37,11 @@
     "lodash": "^3.6.0",
     "morgan": "^1.5.2",
     "querystring": "^0.2.0",
-    "request": "^2.55.0"
+    "request": "^2.55.0",
+    "semver": "^4.3.4"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "mocha": "^2.2.4"
   }
 }
