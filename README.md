@@ -81,13 +81,17 @@ curl 'http://127.0.0.1:3001/run' -H 'Content-Type: text/plain;charset=UTF-8' -H 
 curl 'http://127.0.0.1:3001/run' -H 'Content-Type: text/plain;charset=UTF-8' -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwicGN0eCI6eyJmaWVsZCI6InRoZSB2YWx1ZSJ9LCJpYXQiOjE0Mjg5NTk5ODUsImV4cCI6MTQyOTgyMzk4NSwiYXVkIjoid2VidGFzay1ydW5uZXIifQ.uwWwpYwlyvkXIdACiZN3CI0cIfD8aQWn2dVPQ1RSdKE' --data-binary 'return function(ctx, cb) { cb(null, {message: "Hello " + ctx.field}); }'
 ```
 
-## License
-
-This project is licensed under the MIT license.
-
 ## Issue Reporting
 
 If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
+
+## Author
+
+[Auth0](auth0.com)
+
+## License
+
+This project is licensed under the MIT license. See the [LICENSE](LICENSE) file for more info.
 
 ## What is Auth0?
 
